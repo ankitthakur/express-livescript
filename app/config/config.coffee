@@ -12,8 +12,8 @@ class Conf
 		### 
 		mongoose config
 		### 
-		mongooseConf = require './mongooseConfig'
-		_mongoose = mongooseConf.mongoose
+		MongooseConfig = require './mongooseConfig'
+		mongooseConfig = new MongooseConfig()
 		
 		
 		### 
