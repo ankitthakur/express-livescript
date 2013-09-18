@@ -1,22 +1,24 @@
 module.exports = () ->
-	# create MongooseConfig 
-	class db.MongooseDB 
-		@mongoose:  ->
-			mongoose = require 'mongoose'
-			mongoose.connection.on 'error', console.error.bind console, 'connection error:' 
-			mongoose.connection.once 'open',  ->
-				console.log 'mongodb connection is opened.' 
-			return mongoose
-		
-		@mongoDbUrl:  ->
-			 config = require '../../config/mongoose-config/mongooseconfig' 
-			 return config.mongoUrl
+	
+	class MongooseConfig
 		 
-		 
+		 creds = {
+			 'hostname'	: 'localhost',
+			 'port' 	: 27017,
+			 'username'	: '',
+			 'password'	: '',
+			 'name' 	: '',
+			 'db' 		: 'sampleMongoDB'
+		 }
 
-		 @db: ->
-			 if @mongoose.connection.readyState == 0 
-				 return @mongoose.connect(mongourl)
+		 mongoURI = (creds) ->
+			 if creds['username'] && creds['password']
+				 return 'mongodb://' + creds['username'] + ':' + creds['password'] + '@' + creds['hostname'] + ':' + creds['port'] + '/' + creds['db'] 
+			 else
+				return 'mongodb://' + creds['hostname'] + ':' + creds['port'] + '/' + creds['db']
+
 		 
-		 
-		
+		 mongoUrl : process.env.MONGODB_URI || mongoURI creds
+	
+
+				 
