@@ -1,0 +1,17 @@
+{
+  "name": "express-coffeescript",
+  "version": "0.0.1",
+  "description":"sample application, used to create with different dependencies configuration",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "consolidate": "*",
+	"mongoose":"*",
+	"pg":"*",
+	"less-middleware":"*",
+	"reversable-router":"*"
+  }
+}
