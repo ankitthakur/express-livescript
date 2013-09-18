@@ -1,6 +1,7 @@
 module.exports = () ->
 	# create MongooseConfig 
 	class db.MongooseDB 
+		
 		@mongoose:  ->
 			mongoose = require 'mongoose'
 			mongoose.connection.on 'error', console.error.bind console, 'connection error:' 
@@ -12,8 +13,7 @@ module.exports = () ->
 			 config = require '../config/mongooseConfig' 
 			 return config.mongoUrl
 		 
-		 
-
+		
 		 @db: ->
 			 if @mongoose.connection.readyState == 0 
 				 return @mongoose.connect(mongourl)
