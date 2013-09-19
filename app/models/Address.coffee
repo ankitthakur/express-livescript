@@ -1,5 +1,5 @@
-# create MongooseConfig 
-class MongooseDB 
+# create Address 
+class Address
 	
 	@mongoose:  ->
 		mongoose = require 'mongoose'
@@ -18,4 +18,4 @@ class MongooseDB
 			 return @mongoose.connect(mongourl)
 	 
 	 
-module.exports = MongooseDB
+	
