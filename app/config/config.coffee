@@ -19,8 +19,8 @@ class Conf
 		### 
 		routes config
 		### 
-		routesConf = require './routesConfig'
-		_routes = routesConf.mongoose
+		RoutesConfig = require './routesConfig'
+		RoutesConfig = new RoutesConfig()
 		
 		
 		### 
