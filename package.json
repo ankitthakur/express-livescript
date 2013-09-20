@@ -1,5 +1,5 @@
 {
-  "name": "express-coffeescript",
+  "name": "express-livescript",
   "version": "0.0.1",
   "description":"sample application, used to create with different dependencies configuration",
   "private": true,
