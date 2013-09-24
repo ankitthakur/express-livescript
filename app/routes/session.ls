@@ -7,8 +7,8 @@ class SessionRoutes
 	(app) ->
 		User = require '../../models/User'
 		user = new User
-		not_loggedIn = require('./middleware/not_logged_in');
-		notLoggedIn = new not_loggedIn
+		not_loggedIn = require('./middleware/not_logged_in').notLoggedIn;
+		notLoggedIn = new not_loggedIn 
 		app.dynamicHelpers {
 			session: (req, res) ->
 				return req.session
@@ -25,6 +25,11 @@ class SessionRoutes
 			else
 				res.redirect '/session/new'
 		
+		
+		app.del '/session', (req, res, next) ->
+			req.session.destroy 
+			req.redirect '/users'
+			
 		
 		
 		

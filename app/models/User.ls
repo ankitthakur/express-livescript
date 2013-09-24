@@ -7,7 +7,7 @@ class User
 	->
 		'user strict'
 		mongoose = require 'mongoose'
-		UserSchema = require '../schemas/user'
+		UserSchema = require '../schemas/UserSchema'
 		mongoose.model 'User', UserSchema
 
 module.exports = User
